@@ -18,3 +18,4 @@ while i <= 5:
     i = i + 1
     l = l- 1
     print("Chances remaining: ",l)
+print("The number was 15")
