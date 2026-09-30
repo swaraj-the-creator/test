@@ -13,6 +13,8 @@ while i <= 5:
         print("Close.")
     elif guess_num <= 8 and guess_num >= 1 or guess_num >= 22 and guess_num <= 50:
         print("Far.")
+    else:
+        print("It is an invalid number.")
     i = i + 1
     l = l- 1
     print("Chances remaining: ",l)
