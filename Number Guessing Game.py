@@ -19,9 +19,9 @@ while i <= 5:
     l = l- 1
     print("Chances remaining: ",l)
     if l == 4:
-        print("The number comes between 1 to 30")
+        print("The number comes between 1 to 30\n")
     elif l == 3:
-        print("The number comes between 5 to 20")
+        print("The number comes between 5 to 20\n")
     elif l == 2:
-        print("The number comes between 8 to 18")
+        print("The number comes between 8 to 18\n")
 print("The number was 15")
