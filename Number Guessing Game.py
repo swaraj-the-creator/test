@@ -1,27 +1,35 @@
-print("You need to guess the number from 1 to 50 with only 5 chances!")
-i = 1
-l = 5
-while i <= 5:
-    guess_num = int(input("Guess the number: "))
-    sec_num = 15
-    if guess_num == sec_num:
-        print("Congratulations! You have guessed the number correctly!")
+print("Guess a number between 1 and 50. You have 5 chances.")
+
+secret = 15
+chances = 5
+
+while chances > 0:
+    try:
+        guess = int(input("Guess the number: "))
+    except ValueError:
+        print("Please enter a whole number between 1 and 50.")
+        continue
+
+    if not 1 <= guess <= 50:
+        print("Please enter a number between 1 and 50.")
+        continue
+
+    if guess == secret:
+        print("Congratulations! You guessed the number correctly!")
         break
-    elif guess_num <= 14 and guess_num >= 12 or guess_num >= 15 and guess_num <= 17 :
+
+    diff = abs(guess - secret)
+    if diff <= 1:
+        print("Extremely close!")
+    elif diff <= 2:
         print("Very close.")
-    elif guess_num <= 11 and guess_num >= 9 or guess_num >= 18 and guess_num <= 21 :
+    elif diff <= 5:
         print("Close.")
-    elif guess_num <= 8 and guess_num >= 1 or guess_num >= 22 and guess_num <= 50:
-        print("Far.")
     else:
-        print("It is an invalid number.")
-    i = i + 1
-    l = l- 1
-    print("Chances remaining: ",l)
-    if l == 4:
-        print("The number comes between 1 to 30\n")
-    elif l == 3:
-        print("The number comes between 5 to 20\n")
-    elif l == 2:
-        print("The number comes between 8 to 18\n")
-print("The number was 15")
+        print("Far.")
+
+    chances -= 1
+    print("Chances remaining:", chances)
+
+else:
+    print("Sorry, you're out of chances. The number was", secret)
